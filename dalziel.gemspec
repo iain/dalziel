@@ -26,5 +26,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rspec", "~> 3.0"
 
   spec.add_dependency "json_expressions", "~> 0.8"
-  spec.add_dependency "webmock", "~> 2.3"
+  spec.add_dependency "webmock", "~> 3.0"
 end
