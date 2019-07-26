@@ -147,7 +147,7 @@ module Dalziel
       end
 
       def failure_message
-        if @request == []
+        if @request.nil? || @request.empty?
           "No request matched"
         elsif !@is_json
           "Accept header is not JSON.\n\n%s\n\nAccept is %s" % [ show_request, @accept.inspect ]
