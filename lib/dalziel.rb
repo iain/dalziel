@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "dalziel/version"
 require "json_expressions"
 require "webmock"
@@ -6,7 +8,7 @@ module Dalziel
 
   def self.format_headers(headers)
     size = headers.keys.map(&:size).max
-    headers.map { |k,v| "%-#{size + 2}s %s" % [ "#{k}:", v ] }.join("\n")
+    headers.map { |k, v| "%-#{size + 2}s %s" % [ "#{k}:", v ] }.join("\n")
   end
 
   def self.indent(string)
@@ -27,7 +29,6 @@ module Dalziel
         status: status,
       )
     end
-
 
     # Verifies outgoing request body stubbed with WebMock.
     #
@@ -90,8 +91,8 @@ module Dalziel
         @original = json
         @hash = json.is_a?(String) ? JSON.parse(json) : json
         matcher =~ @hash
-      rescue JSON::ParserError => error
-        @not_parsable_json = error
+      rescue JSON::ParserError => exception
+        @not_parsable_json = exception
         false
       end
 
@@ -185,7 +186,7 @@ module Dalziel
         @body = JSON.parse(response.body)
         @content_type = response.headers["Content-Type"]
 
-        @is_json = (@content_type.to_s.split(";",2).first =~ /\bjson$/)
+        @is_json = (@content_type.to_s.split(";", 2).first =~ /\bjson$/)
         @json_match = (payload_matcher =~ @body)
         @status_match = (@status == response.status)
 
@@ -223,6 +224,7 @@ module Dalziel
     end
 
   end
+
 end
 
 if defined?(RSpec)

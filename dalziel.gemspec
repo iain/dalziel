@@ -1,7 +1,8 @@
-# coding: utf-8
-lib = File.expand_path('../lib', __FILE__)
+# frozen_string_literal: true
+
+lib = File.expand_path("lib", __dir__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'dalziel/version'
+require "dalziel/version"
 
 Gem::Specification.new do |spec|
   spec.name          = "dalziel"
@@ -9,8 +10,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["iain"]
   spec.email         = ["iain@iain.nl"]
 
-  spec.summary       = %q{Convenience gem for testing JSON API calls}
-  spec.description   = %q{Convenience gem for testing JSON API calls}
+  spec.summary       = "Convenience gem for testing JSON API calls"
+  spec.description   = "Convenience gem for testing JSON API calls"
   spec.homepage      = "https://github.com/iain/dalziel"
   spec.license       = "MIT"
 
